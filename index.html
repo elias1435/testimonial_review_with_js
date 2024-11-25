@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Testimonial Carousel</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f5f5f5;
+    }
+
+    .carousel {
+      position: relative;
+      width: 70%;
+      max-width: 800px;
+      overflow: hidden;
+    }
+
+    .carousel-track {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .testimonial {
+      flex: 0 0 100%;
+      text-align: center;
+      font-size: 1.2rem;
+      line-height: 1.6;
+    }
+
+    .controls {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      transform: translateY(-50%);
+    }
+
+    .controls span {
+      cursor: pointer;
+      font-size: 2rem;
+      user-select: none;
+      color: #ff5722;
+    }
+
+    .author {
+      margin-top: 10px;
+      font-weight: bold;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+<div class="carousel">
+  <div class="carousel-track">
+    <div class="testimonial">
+      <blockquote>The Bright Click have been a great asset to our business. They are all very knowledgeable, helpful & accommodating to our requirements & budget. Would highly recommend.</blockquote>
+      <div class="starts">⭐⭐⭐⭐⭐</div>
+      <div class="author">Henrietta Corbett</div>
+    </div>
+    <div class="testimonial">
+      <blockquote>We’ve seen a tremendous growth in our online presence since working with The Bright Click. Highly professional and reliable.</blockquote>
+      <div class="starts">⭐⭐⭐⭐⭐</div>
+      <div class="author">John Doe</div>
+    </div>
+    <div class="testimonial">
+      <blockquote>Their team is incredibly efficient and proactive. I couldn’t be happier with the results.</blockquote>
+      <div class="starts">⭐⭐⭐⭐⭐</div>
+      <div class="author">Sarah Smith</div>
+    </div>
+  </div>
+  <div class="controls">
+    <span class="prev">&laquo;</span>
+    <span class="next">&raquo;</span>
+  </div>
+</div>
+
+<script>
+  const track = document.querySelector('.carousel-track');
+  const testimonials = Array.from(track.children);
+  const prevButton = document.querySelector('.prev');
+  const nextButton = document.querySelector('.next');
+  let currentIndex = 0;
+  const delay = 8000; // 8 seconds
+
+  const moveToSlide = (index) => {
+    const slideWidth = testimonials[0].getBoundingClientRect().width;
+    track.style.transform = `translateX(-${index * slideWidth}px)`;
+  };
+
+  const nextTestimonial = () => {
+    currentIndex = (currentIndex + 1) % testimonials.length;
+    moveToSlide(currentIndex);
+  };
+
+  const prevTestimonial = () => {
+    currentIndex = (currentIndex - 1 + testimonials.length) % testimonials.length;
+    moveToSlide(currentIndex);
+  };
+
+  // Event listeners for buttons
+  nextButton.addEventListener('click', nextTestimonial);
+  prevButton.addEventListener('click', prevTestimonial);
+
+  // Automatic rotation
+  setInterval(nextTestimonial, delay);
+
+  // Adjust slide width on window resize
+  window.addEventListener('resize', () => moveToSlide(currentIndex));
+</script>
+
+</body>
+</html>
