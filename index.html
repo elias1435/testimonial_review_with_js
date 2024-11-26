@@ -5,84 +5,153 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Testimonial Carousel</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      background-color: #f5f5f5;
-    }
+    
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f5f5f5;
+}
+.blockquote-top {
+  float: left;
+}
+.blockquote-bottom {
+  float: right;
+}
+.blockquote-bottom img {
+  float: right;
+}
+.carousel {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+.testimonial blockquote {
+    margin: 0;
+    border-left: none;
+    padding: 0 70px !important;
+}
+.blockquote-bottom img {
+    float: right;
+    margin-top: -50px;
+    position: relative;
+    rotate: 180deg;
+}
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
 
-    .carousel {
-      position: relative;
-      width: 70%;
-      max-width: 800px;
-      overflow: hidden;
-    }
+.testimonial {
+  flex: 0 0 100%;
+  text-align: center;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  padding: 0 50px;
+}
 
-    .carousel-track {
-      display: flex;
-      transition: transform 0.5s ease-in-out;
-    }
+.controls {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+}
 
-    .testimonial {
-      flex: 0 0 100%;
-      text-align: center;
-      font-size: 1.2rem;
-      line-height: 1.6;
-    }
+.controls span {
+  cursor: pointer;
+  font-size: 4rem;
+  user-select: none;
+  color: #ff5722;
+}
 
-    .controls {
-      position: absolute;
-      top: 50%;
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      transform: translateY(-50%);
-    }
+.author {
+  margin-top: 10px;
+  font-weight: bold;
+  color: #333;
+}
 
-    .controls span {
-      cursor: pointer;
-      font-size: 2rem;
-      user-select: none;
-      color: #ff5722;
-    }
-
-    .author {
-      margin-top: 10px;
-      font-weight: bold;
-      color: #333;
-    }
-  </style>
+@media (max-width: 768px) {
+  
+.blockquote-bottom img,
+.blockquote-top img {
+    width: 24px;
+}
+.testimonial {
+  padding: 0px !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.testimonial blockquote {
+    padding: 0 30px !important;
+}
+  
+}
+</style>
+  
 </head>
 <body>
 
 <div class="carousel">
   <div class="carousel-track">
     <div class="testimonial">
-      <blockquote>The Bright Click have been a great asset to our business. They are all very knowledgeable, helpful & accommodating to our requirements & budget. Would highly recommend.</blockquote>
-      <div class="starts">⭐⭐⭐⭐⭐</div>
-      <div class="author">Henrietta Corbett</div>
+      <div class="content-wrapper">
+        <div class="blockquote-top"><img src="https://www.veggiwash.co.uk/wp-content/uploads/2024/11/quote-left.png" alt="Block Quote"/></div>
+        <blockquote>These sprays can be refilled and last for years. Just bought this for friend. Equally good on fruit.</blockquote>
+        <div class="blockquote-bottom"><img src="https://www.veggiwash.co.uk/wp-content/uploads/2024/11/quote-left.png" alt="Block Quote"/></div>
+        <div class="author">Amazon Customer</div>
+        <div class="starts"><img src="https://www.veggiwash.co.uk/wp-content/uploads/2024/11/review-stars.png" alt="5 Stars"/></div>        
+      </div>
     </div>
     <div class="testimonial">
-      <blockquote>We’ve seen a tremendous growth in our online presence since working with The Bright Click. Highly professional and reliable.</blockquote>
-      <div class="starts">⭐⭐⭐⭐⭐</div>
-      <div class="author">John Doe</div>
+      <div class="content-wrapper">
+        <div class="blockquote-top"><img src="https://www.veggiwash.co.uk/wp-content/uploads/2024/11/quote-left.png" alt="Block Quote"/></div>
+        <blockquote>I am super paranoid about my vegetables being thoroughly clean, I usually soak them in water with lemon, this veggi spray does a good job in half the time, the thought of the pesticides and other grim substances being removed brings me comfort! 😌 good value for money, no smells all natural product! Great stuff</blockquote>
+        <div class="blockquote-bottom"><img src="https://www.veggiwash.co.uk/wp-content/uploads/2024/11/quote-left.png" alt="Block Quote"/></div>
+        <div class="author">Amazon Customer</div>
+        <div class="starts"><img src="https://www.veggiwash.co.uk/wp-content/uploads/2024/11/review-stars.png" alt="5 Stars"/></div>
+      </div>
     </div>
     <div class="testimonial">
-      <blockquote>Their team is incredibly efficient and proactive. I couldn’t be happier with the results.</blockquote>
-      <div class="starts">⭐⭐⭐⭐⭐</div>
-      <div class="author">Sarah Smith</div>
+      <div class="content-wrapper">
+        <div class="blockquote-top"><img src="https://www.veggiwash.co.uk/wp-content/uploads/2024/11/quote-left.png" alt="Block Quote"/></div>
+        <blockquote>Have used this product for some years now, and recommend it 100% for removing pesticides on fruit and veg ... you can actually feel the skin on tomatoes ( for example) is as it should be , almost squeaky clean!!!! No residual taste on anything you wash with this product , just follow directions . Happy to have peace of mind knowing I’m not swallowing any unwanted pesticides - which is important these days.</blockquote>
+        <div class="blockquote-bottom"><img src="https://www.veggiwash.co.uk/wp-content/uploads/2024/11/quote-left.png" alt="Block Quote"/></div>
+        <div class="author">Amazon Customer</div>
+        <div class="starts"><img src="https://www.veggiwash.co.uk/wp-content/uploads/2024/11/review-stars.png" alt="5 Stars"/></div>
+      </div>
+    </div>
+    <div class="testimonial">
+      <div class="content-wrapper">
+        <div class="blockquote-top"><img src="https://www.veggiwash.co.uk/wp-content/uploads/2024/11/quote-left.png" alt="Block Quote"/></div>
+        <blockquote>I bought one years ago and love that the pesticides drop to the bottom after removing fruit. I spray and leave for a few minutes add water. Remove fruit in a colander throw away water then rinse and dry. I don’t like the concentrate as it doesn’t seem to work the same. I’m fortunate to have the mini bottle for travelling also.</blockquote>
+        <div class="blockquote-bottom"><img src="https://www.veggiwash.co.uk/wp-content/uploads/2024/11/quote-left.png" alt="Block Quote"/></div>
+        <div class="author">Amazon Customer</div>
+        <div class="starts"><img src="https://www.veggiwash.co.uk/wp-content/uploads/2024/11/review-stars.png" alt="5 Stars"/></div>
+      </div>
+    </div>
+    <div class="testimonial">
+      <div class="content-wrapper">
+        <div class="blockquote-top"><img src="https://www.veggiwash.co.uk/wp-content/uploads/2024/11/quote-left.png" alt="Block Quote"/></div>
+        <blockquote>So quick and easy to use and I feel better knowing I have actually washed all my fruits and veggies.</blockquote>
+        <div class="blockquote-bottom"><img src="https://www.veggiwash.co.uk/wp-content/uploads/2024/11/quote-left.png" alt="Block Quote"/></div>
+        <div class="author">Amazon Customer</div>
+        <div class="starts"><img src="https://www.veggiwash.co.uk/wp-content/uploads/2024/11/review-stars.png" alt="5 Stars"/></div>
+      </div>
     </div>
   </div>
-  <div class="controls">
-    <span class="prev">&laquo;</span>
-    <span class="next">&raquo;</span>
-  </div>
+    <div class="controls">
+      <span class="prev"><</span>
+      <span class="next">></span>
+    </div>
 </div>
+  
 
 <script>
   const track = document.querySelector('.carousel-track');
@@ -116,7 +185,8 @@
 
   // Adjust slide width on window resize
   window.addEventListener('resize', () => moveToSlide(currentIndex));
-</script>
+</script>  
+  
 
 </body>
 </html>
